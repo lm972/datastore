@@ -1,0 +1,27 @@
+stargazer
+========================================================
+
+这个名字很炫的包是用来生成统计模型摘要的latex代码的。这样把生成的代码放到latex里边编译，就可以生成出版级的效果（显然这针对的是R输出的苍白无力）。
+
+```{r}
+library(stargazer)
+prostate <- read.csv("E:/RB/prostate.csv")
+#生成prostate的摘要
+stargazer(prostate)
+
+
+line1<-lm(lcavol~.,data=prostate)
+#生成回归的摘要
+stargazer(line1)
+```
+latex编译的效果是这样的：
+
+除了这个占星师的包，还有好几个类似的可以把R输出转换为latex代码的包，比如texreg。
+
+细节请参考：
+[1]stargazer:beautiful LATEX and ASCII tables from R statistical output
+http://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf
+[2]texreg: Conversion of Statistical Model Output in R to LATEX and HTML
+Tables
+http://cran.r-project.org/web/packages/texreg/vignettes/jss1020.pdf
+
